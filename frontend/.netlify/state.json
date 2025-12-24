@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Panama City",
+			"country": {
+				"code": "PA",
+				"name": "Panama"
+			},
+			"subdivision": {
+				"code": "8",
+				"name": "Provincia de Panamá"
+			},
+			"timezone": "America/Panama",
+			"latitude": 8.9948,
+			"longitude": -79.523
+		},
+		"timestamp": 1766612289568
+	}
+}
