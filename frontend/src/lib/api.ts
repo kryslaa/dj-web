@@ -65,8 +65,12 @@ export async function getHero() {
 export async function getSocialLinks() {
   try {
     const res = await fetch(`${STRAPI_URL}/api/social-links`);
+    if (!res.ok) {
+      console.error('Failed to fetch social links:', res.status);
+      return [];
+    }
     const json = await res.json();
-    return json.data;
+    return json.data || [];
   } catch (error) {
     console.error('Error fetching social links:', error);
     return [];
