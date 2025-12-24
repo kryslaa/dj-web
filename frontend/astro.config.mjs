@@ -3,6 +3,11 @@ import tailwind from '@astrojs/tailwind';
 import tunnel from 'astro-tunnel';
 import react from '@astrojs/react';
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
-  integrations: [tailwind(), tunnel(), react()], // Make sure this is here!
+  // Make sure this is here!
+  integrations: [tailwind(), tunnel(), react()],
+
+  adapter: netlify()
 });
