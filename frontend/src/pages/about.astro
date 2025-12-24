@@ -1,0 +1,53 @@
+---
+import { getAbout } from '../lib/api';
+
+const about = await getAbout();
+const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://127.0.0.1:1337';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#E5A2C3] min-h-screen font-sans">
+    <main class="container mx-auto px-6 py-12 max-w-6xl">
+      <section id="about" class="bg-[#E8E35C] rounded-3xl p-8 md:p-12 shadow-xl">
+        <h2 class="text-4xl md:text-5xl font-black mb-8 text-[#2B1F3D]">
+          about the dj
+        </h2>
+        
+        {about && (
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Photo with fixed aspect ratio -->
+            <div class="aspect-square overflow-hidden rounded-2xl border-4 border-[#2B1F3D] shadow-2xl">
+              {about.profileImage && (
+                <img 
+                  src={`${strapiUrl}${about.profileImage.url}`}
+                  alt="DJ Photo"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              )}
+            </div>
+            
+            <!-- Bio Text -->
+            <div class="space-y-4">
+              <p class="text-base leading-relaxed text-[#2B1F3D]">
+                {about.bio}
+              </p>
+            </div>
+          </div>
+        )}
+      </section>
+    </main>
+
+    <style>
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+    </style>
+  </body>
+</html>

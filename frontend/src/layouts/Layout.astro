@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="aqua">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-base-100">
+    <!-- DaisyUI Navbar with theme colors -->
+    <div class="navbar bg-base-200 shadow-lg">
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="/" class="font-medium">Home</a></li>
+          <li><a href="/about" class="font-medium">About</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Page Content (flex-grow makes it push footer down) -->
+    <div class="flex-grow bg-base-100">
+      <slot />
+    </div>
+
+    <!-- DaisyUI Footer with theme colors -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
+      <aside>
+        <p class="font-bold text-primary">Krysla</p> 
+        <p>© 2024 - All rights reserved</p>
+      </aside>
+    </footer>
+  </body>
+</html>
