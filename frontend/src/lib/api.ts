@@ -52,7 +52,7 @@ export async function getAllVideos(channelId: string, maxResults: number = 4) {
 // get Hero
 export async function getHero() {
   try {
-    const response = await fetch(`${import.meta.env.STRAPI_URL}/api/hero?populate=*`);
+    const response = await fetch(`${STRAPI_URL}/api/hero?populate=*`);
     const { data } = await response.json();
     return data;
   } catch (error) {
